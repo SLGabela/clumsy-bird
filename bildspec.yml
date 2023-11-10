@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  post_build:
+    commands:
+      - echo Copying files to S3...
+      - aws s3 sync . s3://oh-my-bird --delete
+
+artifacts:
+  discard-paths: yes
